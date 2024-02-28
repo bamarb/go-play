@@ -1,0 +1,17 @@
+go 1.21.6
+
+use (
+	./adx
+	./bench
+	./data
+	./kvstore
+	./kvstore/badger
+	./kvstore/sqlite3
+	./mongo
+	./netx
+	./ortb
+	./randx
+	./syncx
+	./tests
+	./timex
+)
