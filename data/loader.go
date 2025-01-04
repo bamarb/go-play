@@ -11,11 +11,6 @@ const (
 	CET_REPLACE ChangeEventType = "replace"
 )
 
-type Loader[T any] interface {
-	// OnLoad a consumer of the Loaded type
-	OnLoad(func(T any))
-}
-
 type Watcher[E any] interface {
 	Watch() <-chan ChangeEvent[E]
 }
@@ -30,6 +25,11 @@ type TypedEvent[T any, D any] interface {
 }
 
 type ChangeEvent[D any] struct {
-	Type ChangeEventType
 	Data D
+	Type ChangeEventType
+}
+
+// A DataSource which provides items of type T
+type DataSource[T any] interface {
+	OnLoad(func([]T))
 }

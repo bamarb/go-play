@@ -7,6 +7,16 @@ type Point struct {
 	y int
 }
 
+type Heap[T any] struct {
+	data []T
+	size int
+}
+
+func TestNilSlice(t *testing.T) {
+	h := &Heap[int]{}
+	t.Logf("nil slice elem access : %d", h.data[0])
+}
+
 func MutateSlice(s []Point, t *testing.T) {
 	for i := 0; i < 10; i++ {
 		// t.Logf("appending point to slice %d\n", i)
@@ -37,11 +47,16 @@ func TestMutateSlice_alloc(t *testing.T) {
 }
 
 func TestSliceBasic(t *testing.T) {
-	slc := make([]Point, 10)
+	slc := make([]Point, 4)
 	t.Logf("Len before mutate %d\n", len(slc))
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 2; i++ {
 		// slc = append(slc, Point{i, i + 1})
 		slc[i] = Point{i, i + 1}
 	}
 	t.Logf("Len after mutate %d, %v\n", len(slc), slc)
+	slc = make([]Point, 0, 3)
+	for i := 0; i < 4; i++ {
+		slc = append(slc, Point{i, i + 1})
+	}
+	t.Logf("Len after mutate %d, %d  %v\n", len(slc), cap(slc), slc)
 }
