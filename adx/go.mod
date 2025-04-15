@@ -1,5 +1,5 @@
 module adx
 
-go 1.23.2
+go 1.24.0
 
-require github.com/bsm/openrtb/v3 v3.2.1 // indirect
+require github.com/bsm/openrtb/v3 v3.2.1

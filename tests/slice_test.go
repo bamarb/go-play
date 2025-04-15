@@ -48,7 +48,8 @@ func TestMutateSlice_alloc(t *testing.T) {
 
 func TestSliceBasic(t *testing.T) {
 	slc := make([]Point, 4)
-	t.Logf("Len before mutate %d\n", len(slc))
+	t.Logf("Len:%d Cap:%d", len(slc), cap(slc))
+
 	for i := 0; i < 2; i++ {
 		// slc = append(slc, Point{i, i + 1})
 		slc[i] = Point{i, i + 1}
@@ -59,4 +60,8 @@ func TestSliceBasic(t *testing.T) {
 		slc = append(slc, Point{i, i + 1})
 	}
 	t.Logf("Len after mutate %d, %d  %v\n", len(slc), cap(slc), slc)
+
+	for i := 0; i < len(slc); i++ {
+		t.Logf("%+v", slc[i])
+	}
 }

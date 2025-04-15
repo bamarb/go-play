@@ -1,12 +1,14 @@
-go 1.23.2
+go 1.24.0
 
 use (
 	./adx
 	./bench
 	./bytex
+	./chanx
 	./data
-	./genericx
+	./filex
 	./ifx
+	./jsonx
 	./kvstore
 	./kvstore/badger
 	./kvstore/sqlite3
@@ -18,4 +20,5 @@ use (
 	./syncx
 	./tests
 	./timex
+	./wal
 )

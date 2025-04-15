@@ -40,7 +40,7 @@ func TestByteBufferBasic(t *testing.T) {
 
 func TestByteBufferWithFile(t *testing.T) {
 	file := "/tmp/gobbuf.tmp"
-	fh, err := os.OpenFile(file, os.O_CREATE|os.O_RDWR|os.O_TRUNC, os.FileMode(0666))
+	_, err := os.OpenFile(file, os.O_CREATE|os.O_RDWR|os.O_TRUNC, os.FileMode(0666))
 	require.NoError(t, err)
 	x := 0xdeadbeef
 	buf := &bytes.Buffer{}

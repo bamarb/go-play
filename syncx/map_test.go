@@ -1,14 +1,17 @@
 package syncx
 
 import (
-	"go-play/ortb/model"
 	"testing"
 
-	"github.com/puzpuzpuz/xsync"
-	"github.com/stretchr/testify/require"
+	"github.com/puzpuzpuz/xsync/v3"
 )
 
+type Point struct {
+	x int
+	y int
+}
+
 func TestConcStrMap(t *testing.T) {
-	strmap := xsync.NewMapOf[model.Fcap]()
-	require.NotNil(t, strmap)
+	m := xsync.NewMapOf[Point, int]()
+	m.Store(Point{42, 42}, 42)
 }

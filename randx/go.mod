@@ -1,6 +1,6 @@
 module randx
 
-go 1.21.0
+go 1.24.0
 
 require (
 	github.com/google/uuid v1.4.0
