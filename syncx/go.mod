@@ -1,6 +1,6 @@
 module syncx
 
-go 1.24.0
+go 1.24.2
 
 require (
 	github.com/puzpuzpuz/xsync/v3 v3.5.0
